@@ -1,5 +1,10 @@
 import { TypeOrmModuleOptions } from "@nestjs/typeorm";
+import { Contact } from "src/chats/typeorm/contact.entity";
+import { Group } from "src/chats/typeorm/group.entity";
+import { Message } from "src/chats/typeorm/message.entity";
+import { Profile } from "src/chats/typeorm/profile.entity";
 import { User } from "src/chats/typeorm/user.entity";
+import { UserGroup } from "src/chats/typeorm/usergroup.entity";
 
 require('dotenv').config();
 
@@ -38,7 +43,14 @@ class DatabaseConfigService {
       username: this.getValue('POSTGRES_USER'),
       password: this.getValue('POSTGRES_PASSWORD'),
       database: this.getValue('POSTGRES_DATABASE'),
-      entities: [],
+      entities: [
+        Contact,
+        Group,
+        Message,
+        Profile,
+        User,
+        UserGroup,
+      ],
 
       migrationsTableName: 'migration',
       migrations: ['src/migrations/*.ts'],
