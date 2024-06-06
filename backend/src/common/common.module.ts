@@ -21,4 +21,4 @@ import { UserGroup } from '../entity/usergroup.entity';
   controllers: [],
   providers: []
 })
-export class ChatsModule {}
+export class CommonModule {}
