@@ -1,10 +1,10 @@
 import { TypeOrmModuleOptions } from "@nestjs/typeorm";
-import { Contact } from "src/chats/typeorm/contact.entity";
-import { Group } from "src/chats/typeorm/group.entity";
-import { Message } from "src/chats/typeorm/message.entity";
-import { Profile } from "src/chats/typeorm/profile.entity";
-import { User } from "src/chats/typeorm/user.entity";
-import { UserGroup } from "src/chats/typeorm/usergroup.entity";
+import { Contact } from "src/entity/contact.entity";
+import { Group } from "src/entity/group.entity";
+import { Message } from "src/entity/message.entity";
+import { Profile } from "src/entity/profile.entity";
+import { User } from "src/entity/user.entity";
+import { UserGroup } from "src/entity/usergroup.entity";
 
 require('dotenv').config();
 

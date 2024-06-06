@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './typeorm/user.entity';
-import { Contact } from './typeorm/contact.entity';
-import { Profile } from './typeorm/profile.entity';
-import { Group } from './typeorm/group.entity';
-import { Message } from './typeorm/message.entity';
-import { UserGroup } from './typeorm/usergroup.entity';
+import { User } from '../entity/user.entity';
+import { Contact } from '../entity/contact.entity';
+import { Profile } from '../entity/profile.entity';
+import { Group } from '../entity/group.entity';
+import { Message } from '../entity/message.entity';
+import { UserGroup } from '../entity/usergroup.entity';
 
 @Module({
   imports: [
@@ -17,6 +17,8 @@ import { UserGroup } from './typeorm/usergroup.entity';
       User,
       UserGroup,
     ]),
-  ]
+  ],
+  controllers: [],
+  providers: []
 })
 export class ChatsModule {}
