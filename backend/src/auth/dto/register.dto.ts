@@ -1,4 +1,5 @@
 import { IsEmail, IsNotEmpty, IsString, IsStrongPassword, Matches, MinLength } from "class-validator";
+import { Match } from "src/common/decorators/match/match.decorator";
 
 // TODO data trimming pipe or sth like that
 // TODO Add more strict password validation, most likely with regex with Matches decorator
@@ -15,4 +16,9 @@ export class RegisterDto {
   @IsString()
   @IsStrongPassword()
   password: string;
+
+  @Match('password')
+  @IsString()
+  @IsStrongPassword()
+  confirmPassword: string;
 }
