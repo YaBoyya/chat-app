@@ -7,6 +7,7 @@ import { Group } from '../entity/group.entity';
 import { Message } from '../entity/message.entity';
 import { UserGroup } from '../entity/usergroup.entity';
 import { UserService } from './services/user/user.service';
+import { UserController } from './controllers/user/user.controller';
 
 @Module({
   imports: [
@@ -19,7 +20,7 @@ import { UserService } from './services/user/user.service';
       UserGroup,
     ]),
   ],
-  controllers: [],
+  controllers: [UserController],
   providers: [UserService]
 })
 export class CommonModule {}
