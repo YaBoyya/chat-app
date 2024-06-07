@@ -1,4 +1,4 @@
-import { IsEmail, IsNotEmpty, IsString, IsStrongPassword, Matches, MinLength } from "class-validator";
+import { IsEmail, IsNotEmpty, IsString, IsStrongPassword } from "class-validator";
 import { Match } from "src/common/decorators/match/match.decorator";
 
 // TODO data trimming pipe or sth like that
