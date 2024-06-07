@@ -21,6 +21,7 @@ import { UserController } from './controllers/user/user.controller';
     ]),
   ],
   controllers: [UserController],
-  providers: [UserService]
+  providers: [UserService],
+  exports: [UserService]
 })
 export class CommonModule {}
