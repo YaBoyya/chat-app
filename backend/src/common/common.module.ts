@@ -6,6 +6,7 @@ import { Profile } from '../entity/profile.entity';
 import { Group } from '../entity/group.entity';
 import { Message } from '../entity/message.entity';
 import { UserGroup } from '../entity/usergroup.entity';
+import { UserService } from './services/user/user.service';
 
 @Module({
   imports: [
@@ -19,6 +20,6 @@ import { UserGroup } from '../entity/usergroup.entity';
     ]),
   ],
   controllers: [],
-  providers: []
+  providers: [UserService]
 })
 export class CommonModule {}
