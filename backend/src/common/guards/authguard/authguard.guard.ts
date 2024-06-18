@@ -2,7 +2,7 @@ import { CanActivate, ExecutionContext, ForbiddenException, Injectable, Unauthor
 import { Observable } from "rxjs";
 import { AuthService } from "src/auth/auth.service";
 import { RequestWithUser } from "src/common/interfaces/request-with-user/request-with-user.interface";
-import { UserService } from "src/common/services/user/user.service";
+import { UserService } from "src/models/users/user.service";
 
 // TODO replace with password lib?
 @Injectable()

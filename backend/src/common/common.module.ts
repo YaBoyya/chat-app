@@ -6,8 +6,8 @@ import { ProfileEntity } from '../entity/profile.entity';
 import { GroupEntity } from '../entity/group.entity';
 import { MessageEntity } from '../entity/message.entity';
 import { UserGroupEntity } from '../entity/usergroup.entity';
-import { UserService } from './services/user/user.service';
-import { UserController } from './controllers/user/user.controller';
+import { UserService } from '../models/users/user.service';
+import { UserController } from '../models/users/user.controller';
 
 @Module({
   imports: [
