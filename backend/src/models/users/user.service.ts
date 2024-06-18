@@ -15,4 +15,8 @@ export class UserService {
     const user = this.userRepository.create(userData);
     return this.userRepository.save(user);
   }
+
+  updatePassword(uuid: string, password: string) {
+    return this.userRepository.update({ uuid: uuid }, {password: password })
+  }
 }
