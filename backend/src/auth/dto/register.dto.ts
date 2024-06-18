@@ -17,8 +17,9 @@ export class RegisterDto {
   @IsStrongPassword()
   password: string;
 
-  @Match('password')
+  @IsNotEmpty()
   @IsString()
+  @Match('password')
   @IsStrongPassword()
   confirmPassword: string;
 }
