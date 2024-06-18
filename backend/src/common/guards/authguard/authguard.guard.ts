@@ -2,6 +2,7 @@ import { CanActivate, ExecutionContext, ForbiddenException, Injectable, Unauthor
 import { Observable } from "rxjs";
 import { AuthService } from "src/auth/auth.service";
 
+// TODO replace with passwport lib?
 @Injectable()
 export class AuthGuard implements CanActivate{
   constructor(private readonly authService: AuthService) {}
