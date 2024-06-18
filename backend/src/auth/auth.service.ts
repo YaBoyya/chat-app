@@ -39,5 +39,11 @@ export class AuthService {
     return await bcrypt.hash(password, salt);
   }
 
+  validateToken(token: string) {
+    return this.jwtService.verify(token, {
+      secret: process.env.SECRET_KEY
+    })
+  }
+
   changePassword(){}
 }
