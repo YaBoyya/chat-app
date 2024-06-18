@@ -1,11 +1,11 @@
 import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
-import { Contact } from "./contact.entity";
-import { Profile } from "./profile.entity";
-import { Message } from "./message.entity";
-import { UserGroup } from "./usergroup.entity";
+import { ContactEntity } from "./contact.entity";
+import { ProfileEntity } from "./profile.entity";
+import { MessageEntity } from "./message.entity";
+import { UserGroupEntity } from "./usergroup.entity";
 
 @Entity({ name: 'users' })
-export class User {
+export class UserEntity {
   @PrimaryGeneratedColumn("uuid")
   uuid: string;
 
@@ -22,22 +22,22 @@ export class User {
   createdAt: Date;
 
   @JoinColumn()
-  @OneToOne(() => Profile, {
+  @OneToOne(() => ProfileEntity, {
     cascade: true,
   })
-  profile: Profile;
+  profile: ProfileEntity;
 
   // list of users contacts
-  @OneToMany(() => Contact, (contact) => contact.user)
-  contacts: Contact[];
+  @OneToMany(() => ContactEntity, (contact) => contact.user)
+  contacts: ContactEntity[];
   
   // contacts that have user in their list
-  @OneToMany(() => Contact, (contact) => contact.contact)
-  contactsOf: Contact[];
+  @OneToMany(() => ContactEntity, (contact) => contact.contact)
+  contactsOf: ContactEntity[];
 
-  @OneToMany(() => Message, (message) => message.user)
-  messages: Message[];
+  @OneToMany(() => MessageEntity, (message) => message.user)
+  messages: MessageEntity[];
 
-  @OneToMany(() => UserGroup, (userGroup) => userGroup.user)
-  userGroups: UserGroup[];
+  @OneToMany(() => UserGroupEntity, (userGroup) => userGroup.user)
+  userGroups: UserGroupEntity[];
 }

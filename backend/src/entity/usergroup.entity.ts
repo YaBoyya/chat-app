@@ -1,9 +1,9 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { User } from "./user.entity";
-import { Group } from "./group.entity";
+import { UserEntity } from "./user.entity";
+import { GroupEntity } from "./group.entity";
 
 @Entity({ name: 'userGroups '})
-export class UserGroup {
+export class UserGroupEntity {
   @PrimaryGeneratedColumn("uuid")
   uuid: string;
 
@@ -13,13 +13,13 @@ export class UserGroup {
   @Column()
   userAlias: string;
 
-  @ManyToOne(() => User, (user) => user.userGroups, {
+  @ManyToOne(() => UserEntity, (user) => user.userGroups, {
     onDelete: 'CASCADE',
   })
-  user: User;
+  user: UserEntity;
 
-  @ManyToOne(() => Group, (group) => group.groupUsers, {
+  @ManyToOne(() => GroupEntity, (group) => group.groupUsers, {
     onDelete: 'CASCADE',
   })
-  group: Group;
+  group: GroupEntity;
 }

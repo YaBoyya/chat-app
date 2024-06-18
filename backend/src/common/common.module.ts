@@ -1,23 +1,23 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from '../entity/user.entity';
-import { Contact } from '../entity/contact.entity';
-import { Profile } from '../entity/profile.entity';
-import { Group } from '../entity/group.entity';
-import { Message } from '../entity/message.entity';
-import { UserGroup } from '../entity/usergroup.entity';
+import { UserEntity } from '../entity/user.entity';
+import { ContactEntity } from '../entity/contact.entity';
+import { ProfileEntity } from '../entity/profile.entity';
+import { GroupEntity } from '../entity/group.entity';
+import { MessageEntity } from '../entity/message.entity';
+import { UserGroupEntity } from '../entity/usergroup.entity';
 import { UserService } from './services/user/user.service';
 import { UserController } from './controllers/user/user.controller';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([
-      Contact,
-      Group,
-      Message,
-      Profile,
-      User,
-      UserGroup,
+      ContactEntity,
+      GroupEntity,
+      MessageEntity,
+      ProfileEntity,
+      UserEntity,
+      UserGroupEntity,
     ]),
   ],
   controllers: [UserController],

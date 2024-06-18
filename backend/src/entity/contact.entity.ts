@@ -1,18 +1,18 @@
 import { Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { User } from "./user.entity";
+import { UserEntity } from "./user.entity";
 
 @Entity({ name: 'contacts' })
-export class Contact{
+export class ContactEntity{
   @PrimaryGeneratedColumn("uuid")
   uuid: string;
 
-  @ManyToOne(() => User, (user) => user.contacts, {
+  @ManyToOne(() => UserEntity, (user) => user.contacts, {
     onDelete: 'CASCADE',
   })
-  user: User;
+  user: UserEntity;
 
-  @ManyToOne(() => User, (user) => user.contactsOf, {
+  @ManyToOne(() => UserEntity, (user) => user.contactsOf, {
     onDelete: 'CASCADE',
   })
-  contact: User;
+  contact: UserEntity;
 }

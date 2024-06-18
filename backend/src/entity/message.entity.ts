@@ -1,10 +1,9 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { User } from "./user.entity";
-import { Group } from "./group.entity";
-import { group } from "console";
+import { UserEntity } from "./user.entity";
+import { GroupEntity } from "./group.entity";
 
 @Entity({ name: 'messages' })
-export class Message {
+export class MessageEntity {
   @PrimaryGeneratedColumn("uuid")
   uuid: string;
 
@@ -17,13 +16,13 @@ export class Message {
   @Column({ type: 'timestamptz', default: () => 'NOW()' })
   createdAt: Date;
 
-  @ManyToOne(() => User, (user) => user.messages, {
+  @ManyToOne(() => UserEntity, (user) => user.messages, {
     onDelete: 'SET NULL',
   })
-  user: User;
+  user: UserEntity;
 
-  @ManyToOne(() => Group, (group) => group.messages, {
+  @ManyToOne(() => GroupEntity, (group) => group.messages, {
     onDelete: 'CASCADE',
   })
-  group: Group;
+  group: GroupEntity;
 }

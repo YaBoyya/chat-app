@@ -1,10 +1,10 @@
 import { TypeOrmModuleOptions } from "@nestjs/typeorm";
-import { Contact } from "src/entity/contact.entity";
-import { Group } from "src/entity/group.entity";
-import { Message } from "src/entity/message.entity";
-import { Profile } from "src/entity/profile.entity";
-import { User } from "src/entity/user.entity";
-import { UserGroup } from "src/entity/usergroup.entity";
+import { ContactEntity } from "src/entity/contact.entity";
+import { GroupEntity } from "src/entity/group.entity";
+import { MessageEntity } from "src/entity/message.entity";
+import { ProfileEntity } from "src/entity/profile.entity";
+import { UserEntity } from "src/entity/user.entity";
+import { UserGroupEntity } from "src/entity/usergroup.entity";
 
 require('dotenv').config();
 
@@ -44,12 +44,12 @@ class DatabaseConfigService {
       password: this.getValue('POSTGRES_PASSWORD'),
       database: this.getValue('POSTGRES_DATABASE'),
       entities: [
-        Contact,
-        Group,
-        Message,
-        Profile,
-        User,
-        UserGroup,
+        ContactEntity,
+        GroupEntity,
+        MessageEntity,
+        ProfileEntity,
+        UserEntity,
+        UserGroupEntity,
       ],
 
       migrationsTableName: 'migration',

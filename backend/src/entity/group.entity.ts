@@ -1,9 +1,9 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { UserGroup } from "./usergroup.entity";
-import { Message } from "./message.entity";
+import { UserGroupEntity } from "./usergroup.entity";
+import { MessageEntity } from "./message.entity";
 
 @Entity({ name: 'groups' })
-export class Group {
+export class GroupEntity {
   @PrimaryGeneratedColumn("uuid")
   uuid: string;
 
@@ -13,14 +13,14 @@ export class Group {
   @Column({ type: 'timestamptz', default: () => 'NOW()' })
   createdAt: Date;
 
-  // TODO Delete Groups when no one is UserGroup
-  @OneToMany(() => UserGroup, (userGroup) => userGroup.group, {
+  // TODO Delete Groups when no one is UserGroupEntity
+  @OneToMany(() => UserGroupEntity, (userGroup) => userGroup.group, {
     cascade: true,
   })
-  groupUsers: UserGroup[];
+  groupUsers: UserGroupEntity[];
 
-  @OneToMany(() => Message, (message) => message.group, {
+  @OneToMany(() => MessageEntity, (message) => message.group, {
     cascade: true,
   })
-  messages: Message[];
+  messages: MessageEntity[];
 }
