@@ -1,7 +1,7 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { RegisterParams } from './utils/types';
 import * as bcrypt from 'bcrypt';
-import { UserService } from 'src/models/users/user.service';
+import { UsersService } from 'src/models/users/user.service';
 import { JwtService } from '@nestjs/jwt';
 import { UserEntity } from 'src/entity/user.entity';
 
@@ -9,7 +9,7 @@ import { UserEntity } from 'src/entity/user.entity';
 export class AuthService {
   constructor(
     private jwtService: JwtService,
-    private userService: UserService,
+    private userService: UsersService,
   ){}
 
   async signIn(username: string, password: string){

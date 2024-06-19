@@ -6,7 +6,6 @@ import { ChangePasswordDTO } from './dto/changePassword.dto';
 import { AuthGuard } from 'src/common/guards/authguard/authguard.guard';
 import { User } from 'src/common/decorators/user/user.decorator';
 import { UserEntity } from 'src/entity/user.entity';
-import { UserService } from 'src/models/users/user.service';
 
 @Controller('auth')
 export class AuthController {

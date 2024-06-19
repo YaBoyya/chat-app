@@ -6,8 +6,8 @@ import { ProfileEntity } from '../entity/profile.entity';
 import { GroupEntity } from '../entity/group.entity';
 import { MessageEntity } from '../entity/message.entity';
 import { UserGroupEntity } from '../entity/usergroup.entity';
-import { UserService } from '../models/users/user.service';
-import { UserController } from '../models/users/user.controller';
+import { UsersService } from '../models/users/user.service';
+import { UsersController } from '../models/users/user.controller';
 
 @Module({
   imports: [
@@ -20,8 +20,8 @@ import { UserController } from '../models/users/user.controller';
       UserGroupEntity,
     ]),
   ],
-  controllers: [UserController],
-  providers: [UserService],
-  exports: [UserService]
+  controllers: [UsersController],
+  providers: [UsersService],
+  exports: [UsersService]
 })
 export class CommonModule {}
