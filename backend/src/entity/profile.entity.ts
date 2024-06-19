@@ -9,6 +9,6 @@ export class ProfileEntity {
   // @Column()
   // picture: File;
 
-  @Column()
+  @Column({ nullable: true })
   pseudonym: string;
 }

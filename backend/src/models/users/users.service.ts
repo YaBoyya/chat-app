@@ -12,7 +12,7 @@ export class UsersService {
   }
 
   async createUser(userData: Partial<UserEntity>) {
-    const user = this.userRepository.create(userData);
+    const user = this.userRepository.create({...userData, profile: {}});
     return this.userRepository.save(user);
   }
 
