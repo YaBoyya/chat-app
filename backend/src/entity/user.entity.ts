@@ -15,16 +15,14 @@ export class UserEntity {
   @Column({ unique: true })
   email: string;
 
-  @Column()
+  @Column({ select: false })
   password: string;
 
   @Column({ type: 'timestamptz', default: () => 'NOW()' })
   createdAt: Date;
 
+  @OneToOne(() => ProfileEntity, { cascade: true })
   @JoinColumn()
-  @OneToOne(() => ProfileEntity, {
-    cascade: true,
-  })
   profile: ProfileEntity;
 
   // list of users contacts

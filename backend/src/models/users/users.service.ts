@@ -11,6 +11,15 @@ export class UsersService {
     return this.userRepository.findOneBy({ username: username });
   }
 
+  findUserWithProfileByUUID(uuid: string) {
+    return this.userRepository.findOne({
+      where: { uuid: uuid },
+      relations: {
+        profile: true,
+      },
+    });
+  }
+
   async createUser(userData: Partial<UserEntity>) {
     const user = this.userRepository.create({...userData, profile: {}});
     return this.userRepository.save(user);
