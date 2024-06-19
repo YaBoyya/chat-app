@@ -3,7 +3,7 @@ import { AuthService } from './auth.service';
 import { RegisterDto } from './dto/register.dto';
 import { SignInDto } from './dto/signIn.dto';
 import { ChangePasswordDTO } from './dto/changePassword.dto';
-import { AuthGuard } from 'src/common/guards/authguard/authguard.guard';
+import { AuthGuard } from 'src/common/guards/authguard/auth.guard';
 import { User } from 'src/common/decorators/user/user.decorator';
 import { UserEntity } from 'src/entity/user.entity';
 
