@@ -7,17 +7,21 @@ import { Repository } from 'typeorm';
 export class UsersService {
   constructor(@InjectRepository(UserEntity) private userRepository: Repository<UserEntity>){}
 
-  findOneByUsername(username: string) {
-    return this.userRepository.findOneBy({ username: username });
+  findOneByUsernameWithPassword(username: string) {
+    const user = this.userRepository.findOne({
+      where: { username: username },
+      select: {
+        uuid: true,
+        username: true,
+        password: true,
+        createdAt: true
+      }
+    });
+    return user;
   }
 
   findUserWithProfileByUUID(uuid: string) {
-    return this.userRepository.findOne({
-      where: { uuid: uuid },
-      relations: {
-        profile: true,
-      },
-    });
+    return this.userRepository.findOneBy({ uuid: uuid });
   }
 
   async createUser(userData: Partial<UserEntity>) {
@@ -25,7 +29,11 @@ export class UsersService {
     return this.userRepository.save(user);
   }
 
+  deleteUser(uuid: string) {
+    return this.userRepository.delete({ uuid: uuid });
+  }
+
   updatePassword(uuid: string, password: string) {
-    return this.userRepository.update({ uuid: uuid }, {password: password })
+    return this.userRepository.update({ uuid: uuid }, { password: password })
   }
 }

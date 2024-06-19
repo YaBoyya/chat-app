@@ -1,4 +1,4 @@
-import { Controller, Get, UseGuards } from '@nestjs/common';
+import { Controller, Delete, Get, UseGuards } from '@nestjs/common';
 import { User } from 'src/common/decorators/user/user.decorator';
 import { AuthGuard } from 'src/common/guards/authguard/auth.guard';
 import { UserEntity } from 'src/entity/user.entity';
@@ -10,8 +10,14 @@ export class UsersController {
 
   @Get('profile')
   @UseGuards(AuthGuard)
-  getProfile(@User() user: UserEntity) {
-    console.log(user.uuid);
-    return this.userService.findUserWithProfileByUUID(user.uuid);
+  async getUserProfile(@User() user: UserEntity) {
+    return await this.userService.findUserWithProfileByUUID(user.uuid);
+  }
+
+  @Delete('delete')
+  @UseGuards(AuthGuard)
+  async deleteUser(@User() user: UserEntity) {
+    const deleteUser = await this.userService.deleteUser(user.uuid)
+    return deleteUser;
   }
 }

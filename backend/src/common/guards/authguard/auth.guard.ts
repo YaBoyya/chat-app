@@ -12,9 +12,9 @@ export class AuthGuard implements CanActivate{
     private readonly userService: UsersService,
   ) {}
 
-  canActivate(
+  async canActivate(
     context: ExecutionContext
-  ): boolean | Promise<boolean> | Observable<boolean> {
+  ): Promise<boolean> {
     try {
       const request = context.switchToHttp().getRequest();
       const { authorization }: any = request.headers;
@@ -25,7 +25,8 @@ export class AuthGuard implements CanActivate{
       const authToken = authorization.replace(/bearer/gim, '').trim();
       const resp = this.authService.validateToken(authToken);
 
-      this.addUserToRequest(resp.username, request)
+      await this.addUserToRequest(resp.username, request)
+
       request.tokenData = resp;
       return true;
     } catch(error) {
@@ -33,8 +34,8 @@ export class AuthGuard implements CanActivate{
     }
   }
 
-  addUserToRequest(username: string, request: RequestWithUser) {
-    const user = this.userService.findOneByUsername(username)
+  async addUserToRequest(username: string, request: RequestWithUser) {
+    const user = await this.userService.findOneByUsernameWithPassword(username);
     request.user = user;
   }
 }
