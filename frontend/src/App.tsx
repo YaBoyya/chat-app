@@ -20,39 +20,50 @@ function Register() {
     setRegisterData(initialState);
   }
 
-  // TODO Update css
   return (
-    <form onSubmit={(e) => submitRegisterForm(e)}>
-      <label>Username:</label>
-      <input
-        name="username"
-        type="text"
-        value={registerData.username}
-        onChange={handleRegisterFormChange}
-      ></input>
-      <label>Email:</label>
-      <input
-        name="email"
-        type="text"
-        value={registerData.email}
-        onChange={handleRegisterFormChange}
+    <>
+      <form className="register-form" onSubmit={(e) => submitRegisterForm(e)}>
+      <div className='input-block'>
+        <label>Username:</label>
+        <input
+          name="username"
+          type="text"
+          value={registerData.username}
+          onChange={handleRegisterFormChange}
         ></input>
-      <label>Password:</label>
-      <input
-        name="password"
-        type="password"
-        value={registerData.password}
-        onChange={handleRegisterFormChange}
+      </div>
+      <div className='input-block'>
+        <label>Email:</label>
+        <input
+          name="email"
+          type="text"
+          value={registerData.email}
+          onChange={handleRegisterFormChange}
         ></input>
-      <label>Confirm password:</label>
-      <input
-        name="confirmPassword"
-        type="password"
-        value={registerData.confirmPassword}
-        onChange={handleRegisterFormChange}
+      </div>
+      <div className='input-block'>
+        <label>Password:</label>
+        <input
+          name="password"
+          type="password"
+          value={registerData.password}
+          onChange={handleRegisterFormChange}
         ></input>
-      <button type="submit">Register</button>
+      </div>
+      <div className='input-block'>
+        <label>Confirm password:</label>
+        <input
+          name="confirmPassword"
+          type="password"
+          value={registerData.confirmPassword}
+          onChange={handleRegisterFormChange}
+        ></input>
+      </div>
+      <div className='button-block'>
+        <button type="submit">Register</button>
+      </div>  
     </form>
+    </>
   )
 }
 
