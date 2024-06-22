@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, FormEvent, useState } from 'react'
 import './App.css'
 
 function Register() {
@@ -15,15 +15,14 @@ function Register() {
     setRegisterData((prev) => ({...prev, [name]: value}));
   }
 
-  function submitRegisterForm(e: any): void {
+  function submitRegisterForm(e: FormEvent): void {
     e.preventDefault();
-    e.stopPropagation()
     setRegisterData(initialState);
   }
 
-  // TODO Fix form submitting and update css
+  // TODO Update css
   return (
-    <form>
+    <form onSubmit={(e) => submitRegisterForm(e)}>
       <label>Username:</label>
       <input
         name="username"
@@ -52,7 +51,7 @@ function Register() {
         value={registerData.confirmPassword}
         onChange={handleRegisterFormChange}
         ></input>
-      <button onClick={() => submitRegisterForm}>Register</button>
+      <button type="submit">Register</button>
     </form>
   )
 }
