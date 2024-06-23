@@ -4,9 +4,7 @@ import './Register.css'
 function Register() {
   const initialState = {
     username: "",
-    email: "",
     password: "",
-    confirmPassword: ""
   }
   const [registerData, setRegisterData] = useState(initialState);
 
@@ -33,15 +31,6 @@ function Register() {
         ></input>
       </div>
       <div className='input-block'>
-        <label>Email:</label>
-        <input
-          name="email"
-          type="text"
-          value={registerData.email}
-          onChange={handleRegisterFormChange}
-        ></input>
-      </div>
-      <div className='input-block'>
         <label>Password:</label>
         <input
           name="password"
@@ -50,18 +39,9 @@ function Register() {
           onChange={handleRegisterFormChange}
         ></input>
       </div>
-      <div className='input-block'>
-        <label>Confirm password:</label>
-        <input
-          name="confirmPassword"
-          type="password"
-          value={registerData.confirmPassword}
-          onChange={handleRegisterFormChange}
-        ></input>
-      </div>
-      <small>Already have an account? <a href="/login">Log In</a></small>
+      <small>Don't have an account yet? <a href="/register">Register</a></small>
       <div className='button-block'>
-        <button type="submit">Register</button>
+        <button type="submit">Login</button>
       </div>  
     </form>
     </>

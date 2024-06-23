@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 
 import Register from './Register.tsx'
+import Login from './Login.tsx'
 import './index.css'
 
 const router = createBrowserRouter([
@@ -15,6 +16,13 @@ const router = createBrowserRouter([
         <h1>It's empty here!</h1>
         <p><a href='/register'>Register?</a></p>
         <p><a href='/login'>Login?</a></p>
+      </>
+    )
+  },{
+    path: "login",
+    element: (
+      <>
+        <Login />
       </>
     )
   },{
