@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
-import './App.css'
+import './Register.css'
 
 function Register() {
   const initialState = {
@@ -67,12 +67,4 @@ function Register() {
   )
 }
 
-function App() {
-  return (
-    <>
-      <Register />
-    </>
-  )
-}
-
-export default App
+export default Register
