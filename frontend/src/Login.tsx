@@ -6,28 +6,28 @@ function Register() {
     username: "",
     password: "",
   }
-  const [registerData, setRegisterData] = useState(initialState);
+  const [loginData, setLoginData] = useState(initialState);
 
-  const handleRegisterFormChange = (e: ChangeEvent<HTMLInputElement>): void => {
+  const handleLoginFormChange = (e: ChangeEvent<HTMLInputElement>): void => {
     const {name, value} = e.target;
-    setRegisterData((prev) => ({...prev, [name]: value}));
+    setLoginData((prev) => ({...prev, [name]: value}));
   }
 
-  function submitRegisterForm(e: FormEvent): void {
+  function submitLoginForm(e: FormEvent): void {
     e.preventDefault();
-    setRegisterData(initialState);
+    setLoginData(initialState);
   }
 
   return (
     <>
-      <form className="register-form" onSubmit={(e) => submitRegisterForm(e)}>
+      <form className="register-form" onSubmit={(e) => submitLoginForm(e)}>
       <div className='input-block'>
         <label>Username:</label>
         <input
           name="username"
           type="text"
-          value={registerData.username}
-          onChange={handleRegisterFormChange}
+          value={loginData.username}
+          onChange={handleLoginFormChange}
         ></input>
       </div>
       <div className='input-block'>
@@ -35,8 +35,8 @@ function Register() {
         <input
           name="password"
           type="password"
-          value={registerData.password}
-          onChange={handleRegisterFormChange}
+          value={loginData.password}
+          onChange={handleLoginFormChange}
         ></input>
       </div>
       <small>Don't have an account yet? <a href="/register">Register</a></small>
